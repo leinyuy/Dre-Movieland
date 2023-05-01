@@ -24,6 +24,13 @@ const App = () => {
 
     }, []);
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+          searchMovies(searchTerm);
+        }
+      }
+
+
     return (
       <div className="app">
         <h1>DreMovie Search</h1>
@@ -32,7 +39,8 @@ const App = () => {
             placeholder="search for movies"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-          />
+            onKeyDown={handleKeyPress}
+                />
                 <img src={SearchIcon}
                     alt="search"
                     onClick={() => searchMovies(searchTerm)} />
